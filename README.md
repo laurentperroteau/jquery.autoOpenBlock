@@ -7,7 +7,7 @@ jQuery Auto Open Block
 ### Explanation (in french at the moment) : ###
 
 > Automatise après un évenement l'ajout et la suppression de classe sur un élément tiers (utile pour grand site) : 
-> _en pratique, ceci permet au clic l'ouverture et la fermeture de bloc, [voir exemple](http://codepen.io/laurentperroteau/pen/IFmvy)._
+> _en pratique, ceci permet au clic l'ouverture et la fermeture de blocs, [voir demo](http://codepen.io/laurentperroteau/pen/IFmvy)._
 
 
 Ce que permet le plugin
@@ -17,13 +17,12 @@ Lexique : le __trigger__ est l'élement où l'on click pour ouvrir un block, le 
 
 - Plusieurs trigger peuvent ouvrir un même block
 - Un trigger ne peut pas ouvrir plusieurs block
-- Au click sur un trigger, on peut fermer un ou plusieurs block : [voir exemple](http://codepen.io/laurentperroteau/pen/Consr/)
-- On peut ouvrir/fermer les block "manuelement"
-- À la fermeture d'un block, une classe "is-close" est ajouté pour l'utilisation des keyframes : [voir exemple](http://codepen.io/laurentperroteau/pen/olDqf)
+- Au click sur un trigger, on peut fermer un ou plusieurs block : [voir demo](http://codepen.io/laurentperroteau/pen/Consr/)
+- On peut ouvrir/fermer les block "manuelement" : [voir précédente demo](http://codepen.io/laurentperroteau/pen/Consr/)
+- À la fermeture d'un block, une classe "is-close" est ajouté pour l'utilisation des keyframes : [voir demo](http://codepen.io/laurentperroteau/pen/olDqf)
 - On peut ajouter des triggers et des blocks après chargement de la page
 - On peut détruire tous les évenement ou celui d'un trigger en particulier
 - Au click sur un trigger, on peut exécuter une méthode externe avant et/ou après l'ouverture du block
-- On peut mettre un autre évenement que click
 
 
 Installation
@@ -75,16 +74,11 @@ $.autoOpenningBlock({
 <a href="#" data-trigger-elem="block" data-closing='["secondBlock", "thirdBlock"]'>Trigger</a>
 ````
 
-````javascript
-// On peut ajouter "manuelement" ces block à fermer
-$('[data-trigger-elem=block]').data('closing', 'secondBlock');
-````
 
-
-#### Ouvrir ou fermer "manuelement un block" : ####
+#### Ouvrir ou fermer "manuelement" un block" : ####
 
 ````javascript
-// où "menu" est le nom du block
+// Où "menu" est le nom du block
 $.autoOpenningBlock('openElem', 'menu'); 
 $.autoOpenningBlock('closeElem', 'menu');
 ````
@@ -93,10 +87,10 @@ $.autoOpenningBlock('closeElem', 'menu');
 #### Ajouter un évenement à la liste de trigger après chargement (après insertion) : ####
 
 ````javascript
-// où "#newBlock" est le sélecteur du trigger
+// Où "#newBlock" est le sélecteur du trigger
 $.autoOpenningBlock('newElement', '#newBlock'); 
 
-// où "change" est le nouvel évenement"
+// Où "change" est le nouvel évenement"
 $.autoOpenningBlock('newElement', '#newBlock', 'change'); 
 ````
 
@@ -104,10 +98,10 @@ $.autoOpenningBlock('newElement', '#newBlock', 'change');
 #### Détruire les évenements : ####
 
 ````javascript
-// détruit tous les évenements
+// Sétruit tous les évenements
 $.autoOpenningBlock('destroy'); 
 
-// détruit seulement l'évenement sur le trigger renseigné
+// Sétruit seulement l'évenement sur le trigger renseigné
 $.autoOpenningBlock('destroy', $('#destroy') ); 
 ````
 
@@ -119,5 +113,5 @@ $.autoOpenningBlock('destroy', $('#destroy') );
 <a href="#" data-trigger-elem="block" data-before-open="Master.doSomething">Trigger</a>
 
 <!-- Après l'ouverture du block, Master.doSomethingElse() sera appelé -->
-<a href="#" data-trigger-elem="block" data-before-open="Master.doSomethingElse">Trigger</a>
+<a href="#" data-trigger-elem="block" data-after-open="Master.doSomethingElse">Trigger</a>
 ````
